@@ -172,7 +172,7 @@ export class ForwardEmail {
       throw new Error('Email "subject" field is required');
     }
 
-    return this.request<EmailResponse>('POST', '/v1/emails', options);
+    return this.request<EmailResponse>('POST', '/v1/emails', options as unknown as Record<string, unknown>);
   }
 
   /**
@@ -190,7 +190,7 @@ export class ForwardEmail {
    * ```
    */
   async listEmails(options?: ListEmailsOptions): Promise<EmailResponse[]> {
-    return this.request<EmailResponse[]>('GET', '/v1/emails', undefined, options);
+    return this.request<EmailResponse[]>('GET', '/v1/emails', undefined, options as Record<string, string | number | boolean>);
   }
 
   /**
