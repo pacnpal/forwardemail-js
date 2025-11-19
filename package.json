@@ -1,0 +1,61 @@
+{
+  "name": "forwardemail-js",
+  "version": "1.0.0",
+  "description": "Enterprise-grade Node.js SDK for Forward Email API - Zero external dependencies, works with any framework",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "forwardemail": "./dist/cli.js",
+    "fe": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc && chmod +x dist/cli.js",
+    "dev": "tsc --watch",
+    "test": "node --test",
+    "lint": "eslint src/**/*.ts",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "keywords": [
+    "forward-email",
+    "email",
+    "smtp",
+    "mail",
+    "api",
+    "forwardemail",
+    "email-api",
+    "send-email",
+    "nodemailer",
+    "express",
+    "fastify",
+    "koa",
+    "hapi",
+    "nestjs",
+    "enterprise",
+    "production",
+    "native",
+    "zero-dependencies"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/forwardemail-js.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "eslint": "^8.57.0",
+    "typescript": "^5.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ]
+}

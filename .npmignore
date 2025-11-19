@@ -1,0 +1,25 @@
+# Source files
+src/
+test/
+examples/
+
+# Config files
+tsconfig.json
+.eslintrc.js
+.gitignore
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+
+# Documentation
+*.md
+!README.md
+
+# Development
+.vscode/
+.idea/
+
+# Misc
+*.log
+.DS_Store
