@@ -22,9 +22,9 @@
  * ```
  */
 
-export { ForwardEmail } from './client';
-export * from './types';
+export { ForwardEmail } from './client.js';
+export * from './types.js';
 
 // Default export for convenience
-import { ForwardEmail } from './client';
+import { ForwardEmail } from './client.js';
 export default ForwardEmail;

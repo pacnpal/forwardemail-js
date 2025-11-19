@@ -4,7 +4,7 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as os from 'os';
 import * as readline from 'readline';
-import { ForwardEmail } from './client';
+import { ForwardEmail } from './client.js';
 
 const CONFIG_DIR = path.join(os.homedir(), '.forwardemail');
 const CONFIG_FILE = path.join(CONFIG_DIR, 'config.json');
@@ -466,9 +466,7 @@ async function main(): Promise<void> {
 }
 
 // Run CLI
-if (require.main === module) {
-  main().catch((err) => {
-    console.error('Fatal error:', err);
-    process.exit(1);
-  });
-}
+main().catch((err) => {
+  console.error('Fatal error:', err);
+  process.exit(1);
+});
