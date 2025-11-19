@@ -186,7 +186,6 @@ async function testCommand(args: Record<string, string | boolean>): Promise<void
   console.log('Testing Forward Email API...\n');
 
   const client = getClient(args['api-key'] as string);
-  const config = loadConfig();
 
   try {
     // Test 1: Get account info
@@ -211,10 +210,11 @@ async function testCommand(args: Record<string, string | boolean>): Promise<void
     console.log('\n✓ All tests passed! API is working correctly.');
     
     client.close();
-  } catch (err: any) {
-    console.error('\n✗ Test failed:', err.message);
-    if (err.statusCode) {
-      console.error(`   HTTP Status: ${err.statusCode}`);
+  } catch (err: unknown) {
+    const error = err as { message?: string; statusCode?: number };
+    console.error('\n✗ Test failed:', error.message || 'Unknown error');
+    if (error.statusCode) {
+      console.error(`   HTTP Status: ${error.statusCode}`);
     }
     process.exit(1);
   }
@@ -259,10 +259,11 @@ async function sendCommand(args: Record<string, string | boolean>): Promise<void
     console.log(`   Message ID: ${result.messageId}`);
     
     client.close();
-  } catch (err: any) {
-    console.error('✗ Failed to send email:', err.message);
-    if (err.statusCode) {
-      console.error(`   HTTP Status: ${err.statusCode}`);
+  } catch (err: unknown) {
+    const error = err as { message?: string; statusCode?: number };
+    console.error('✗ Failed to send email:', error.message || 'Unknown error');
+    if (error.statusCode) {
+      console.error(`   HTTP Status: ${error.statusCode}`);
     }
     process.exit(1);
   }
@@ -295,8 +296,9 @@ async function listCommand(args: Record<string, string | boolean>): Promise<void
     }
     
     client.close();
-  } catch (err: any) {
-    console.error('✗ Failed to list emails:', err.message);
+  } catch (err: unknown) {
+    const error = err as { message?: string };
+    console.error('✗ Failed to list emails:', error.message || 'Unknown error');
     process.exit(1);
   }
 }
@@ -316,8 +318,9 @@ async function accountCommand(args: Record<string, string | boolean>): Promise<v
     console.log(`  Created: ${account.created_at}`);
     
     client.close();
-  } catch (err: any) {
-    console.error('✗ Failed to get account info:', err.message);
+  } catch (err: unknown) {
+    const error = err as { message?: string };
+    console.error('✗ Failed to get account info:', error.message || 'Unknown error');
     process.exit(1);
   }
 }
@@ -337,8 +340,9 @@ async function limitsCommand(args: Record<string, string | boolean>): Promise<vo
     console.log(`  Usage: ${percentage}%`);
     
     client.close();
-  } catch (err: any) {
-    console.error('✗ Failed to get limits:', err.message);
+  } catch (err: unknown) {
+    const error = err as { message?: string };
+    console.error('✗ Failed to get limits:', error.message || 'Unknown error');
     process.exit(1);
   }
 }
@@ -367,8 +371,9 @@ async function domainsCommand(args: Record<string, string | boolean>): Promise<v
     }
     
     client.close();
-  } catch (err: any) {
-    console.error('✗ Failed to list domains:', err.message);
+  } catch (err: unknown) {
+    const error = err as { message?: string };
+    console.error('✗ Failed to list domains:', error.message || 'Unknown error');
     process.exit(1);
   }
 }
@@ -402,8 +407,9 @@ async function aliasesCommand(domainName: string, args: Record<string, string | 
     }
     
     client.close();
-  } catch (err: any) {
-    console.error('✗ Failed to list aliases:', err.message);
+  } catch (err: unknown) {
+    const error = err as { message?: string };
+    console.error('✗ Failed to list aliases:', error.message || 'Unknown error');
     process.exit(1);
   }
 }
@@ -452,8 +458,9 @@ async function main(): Promise<void> {
         console.error('Run "forwardemail help" for usage information.');
         process.exit(1);
     }
-  } catch (err: any) {
-    console.error('Unexpected error:', err.message);
+  } catch (err: unknown) {
+    const error = err as { message?: string };
+    console.error('Unexpected error:', error.message || 'Unknown error');
     process.exit(1);
   }
 }

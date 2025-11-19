@@ -24,16 +24,16 @@ export interface EmailOptions {
   attachDataUrls?: boolean;
   watchHtml?: string;
   amp?: string;
-  icalEvent?: Record<string, any>;
-  alternatives?: Record<string, any>[];
+  icalEvent?: Record<string, unknown>;
+  alternatives?: Record<string, unknown>[];
   encoding?: string;
   raw?: string;
   textEncoding?: 'quoted-printable' | 'base64';
   priority?: 'high' | 'normal' | 'low';
-  headers?: Record<string, any> | Record<string, any>[];
+  headers?: Record<string, string | string[]> | Record<string, string | string[]>[];
   messageId?: string;
   date?: string | Date;
-  list?: Record<string, any>;
+  list?: Record<string, string>;
 }
 
 export interface Attachment {
@@ -44,7 +44,7 @@ export interface Attachment {
   contentDisposition?: string;
   cid?: string;
   encoding?: string;
-  headers?: Record<string, any>;
+  headers?: Record<string, string | string[]>;
 }
 
 export interface EmailResponse {

@@ -10,7 +10,6 @@ import {
   Domain,
   Alias,
   ListEmailsOptions,
-  ErrorResponse,
 } from './types';
 
 /**
@@ -62,8 +61,8 @@ export class ForwardEmail {
   private async request<T>(
     method: string,
     path: string,
-    body?: any,
-    queryParams?: Record<string, any>
+    body?: Record<string, unknown>,
+    queryParams?: Record<string, string | number | boolean>
   ): Promise<T> {
     const url = new URL(path, this.baseURL);
 
@@ -112,7 +111,7 @@ export class ForwardEmail {
             if (statusCode >= 400) {
               const error = new Error(
                 parsedData.message || `HTTP ${statusCode}: ${res.statusMessage}`
-              ) as Error & { statusCode: number; response?: any };
+              ) as Error & { statusCode: number; response?: unknown };
               error.statusCode = statusCode;
               error.response = parsedData;
               reject(error);
