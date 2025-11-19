@@ -1,6 +1,6 @@
 {
   "name": "forwardemail-js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Enterprise-grade Node.js SDK for Forward Email API - Zero external dependencies, works with any framework",
   "keywords": [
     "forward-email",
@@ -32,7 +32,7 @@
   },
   "license": "MIT",
   "author": "pacnpal <pac@pacnp.al> (https://pacnp.ala/)",
-  "type": "commonjs",
+  "type": "module",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "bin": {
