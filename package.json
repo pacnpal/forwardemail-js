@@ -1,6 +1,6 @@
 {
   "name": "forwardemail-js",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Enterprise-grade Node.js SDK for Forward Email API - Zero external dependencies, works with any framework",
   "keywords": [
     "forward-email",
@@ -59,10 +59,7 @@
   "devDependencies": {
     "@eslint/js": "^9.39.1",
     "@types/node": "^22.0.0",
-    "@typescript-eslint/eslint-plugin": "^7.0.0",
-    "@typescript-eslint/parser": "^7.0.0",
-    "eslint": "^8.57.1",
-    "eslint-plugin-react": "^7.37.5",
+    "eslint": "^9.39.1",
     "globals": "^16.5.0",
     "typescript": "^5.0.0",
     "typescript-eslint": "^8.47.0"
